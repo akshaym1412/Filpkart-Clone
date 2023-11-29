@@ -18,7 +18,7 @@ export const instance = new razorpay({
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
-app.use("/",route)
+app.use("/api",route)
 
 app.get("/", (req, res) => {
     app.use(express.static(path.resolve(__dirname, "frontend", "build")));
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 app.get("/api/getkey",(req,res)=>{
     return res.status(200).json({key:process.env.KEY})
 })
-app.get("/Products",async(req,res)=>{
+app.get("/products",async(req,res)=>{
 try{
 const data=await productsSchema.find({})
 if(!data){
